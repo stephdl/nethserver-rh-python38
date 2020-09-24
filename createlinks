@@ -1,0 +1,16 @@
+#!/usr/bin/perl -w
+
+use esmith::Build::CreateLinks qw(:all);
+
+my @templates = qw (
+    /etc/profile.d/enableSoftwareCollectionPython.sh
+);
+
+my $event = 'nethserver-rh-python38-update';
+
+event_actions ( $event, 'initialize-default-databases' => '00');
+event_templates($event, @templates);
+
+$event = 'python-update';
+
+event_templates($event, @templates);

@@ -1,0 +1,9 @@
+{
+return "#rh-python38 is not enabled" unless (($python{'version'}||'disabled') eq 'python38');
+
+$OUT .= q(
+#!/bin/bash
+# rh-python38 is enabled per default
+source scl_source enable rh-python38
+);
+}
